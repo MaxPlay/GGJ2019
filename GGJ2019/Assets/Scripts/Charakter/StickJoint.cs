@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Charakter
+namespace GGJ.Character
 {
     class StickJoint: MonoBehaviour
     {
