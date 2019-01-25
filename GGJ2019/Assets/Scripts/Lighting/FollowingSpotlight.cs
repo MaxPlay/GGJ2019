@@ -17,6 +17,9 @@ namespace GGJ.Lighting
         #region Serializefields
 
         [SerializeField]
+        GameManager gameManager;
+
+        [SerializeField]
         Light spotlight;
 
         [SerializeField]
@@ -42,7 +45,17 @@ namespace GGJ.Lighting
             }
         }
 
-        private void Update()
+        private void Start()
+        {
+            gameManager.Update += GameManager_Update;
+        }
+
+        private void OnDestroy()
+        {
+            gameManager.Update -= GameManager_Update;
+        }
+
+        private void GameManager_Update()
         {
             if(lookAt && spotlight)
             {

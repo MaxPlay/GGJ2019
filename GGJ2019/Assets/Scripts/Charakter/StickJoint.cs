@@ -16,6 +16,9 @@ namespace GGJ.Character
         #region Serializefields
 
         [SerializeField]
+        GameManager gameManager;
+
+        [SerializeField]
         Transform topJoint, bottomJoint;
 
         [SerializeField]
@@ -33,7 +36,17 @@ namespace GGJ.Character
 
         #region Unity Methods
 
-        private void Update()
+        private void Start()
+        {
+            gameManager.Update += StickJoint_Update;
+        }
+
+        private void OnDestroy()
+        {
+            gameManager.Update -= StickJoint_Update;
+        }
+
+        private void StickJoint_Update()
         {
             if(topJoint && bottomJoint)
             {
