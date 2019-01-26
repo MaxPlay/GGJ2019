@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEditor;
 
-namespace GGJ.Lighting
+namespace GGJ.Character
 {
-    class FollowingSpotlight : MonoBehaviour
+    class StickJoint: MonoBehaviour
     {
         #region Variables
 
@@ -20,10 +19,10 @@ namespace GGJ.Lighting
         GameManager gameManager;
 
         [SerializeField]
-        Light spotlight;
+        Transform topJoint, bottomJoint;
 
         [SerializeField]
-        Transform lookAt;
+        float bottomJointDistance;
 
         #endregion
 
@@ -37,33 +36,23 @@ namespace GGJ.Lighting
 
         #region Unity Methods
 
-        private void Awake()
-        {
-            if(!spotlight)
-            {
-                spotlight = GetComponent<Light>();
-            }
-        }
-
         private void Start()
         {
-            gameManager.Update += GameManager_Update;
+            gameManager.Update += StickJoint_Update;
         }
 
         private void OnDestroy()
         {
-            gameManager.Update -= GameManager_Update;
+            gameManager.Update -= StickJoint_Update;
         }
 
-        private void GameManager_Update()
+        private void StickJoint_Update()
         {
-            if(lookAt && spotlight)
+            if(topJoint && bottomJoint)
             {
-                spotlight.transform.LookAt(lookAt);
-            }
-            else
-            {
-                Debug.Log("No Object to look at found");
+                transform.position = topJoint.position * 0.5f + (bottomJoint.position + Vector3.right * bottomJointDistance) * 0.5f;
+                transform.forward = topJoint.position - (bottomJoint.position + Vector3.right * bottomJointDistance);
+                transform.Rotate(Vector3.right, 90);
             }
         }
 
