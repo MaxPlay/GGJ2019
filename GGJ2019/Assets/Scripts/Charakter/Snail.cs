@@ -137,6 +137,10 @@ namespace GGJ.Character
             {
                 rigid.gravityScale = 1;
             }
+            else if(currentHouse.houseType == House.HouseType.Heavy)
+            {
+                rigid.mass = 1;
+            }
             currentHouse = null;
             houseRigid.bodyType = RigidbodyType2D.Dynamic;
             houseRigid = null;
@@ -157,6 +161,10 @@ namespace GGJ.Character
                 if(currentHouse.houseType == House.HouseType.Fly)
                 {
                     rigid.gravityScale = 0;
+                }
+                else if(currentHouse.houseType == House.HouseType.Heavy)
+                {
+                    rigid.mass = houseRigid.mass;
                 }
             }
         }
