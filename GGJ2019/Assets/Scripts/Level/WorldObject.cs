@@ -18,6 +18,8 @@ namespace GGJ.Level
         [SerializeField]
         private bool moveUp;
 
+        public WorldObjectState State { get => state; }
+
         public override void Setup()
         {
             upPosition = transform.position.y;
@@ -26,7 +28,7 @@ namespace GGJ.Level
 
         public override void UpdateEntity()
         {
-            switch (state)
+            switch (State)
             {
                 case WorldObjectState.IdleUp:
                     Idle(!OnStage, WorldObjectState.Down);
@@ -63,7 +65,7 @@ namespace GGJ.Level
         public override void DrawGizmos(float yMin, float yMax)
         {
             Gizmos.color = Timeline ? Timeline.IsVisible(this) ? Color.white : Color.gray : Color.gray;
-            Gizmos.DrawSphere(transform.position, 0.5f);
+            Gizmos.DrawSphere(transform.position, 0.1f);
         }
     }
 

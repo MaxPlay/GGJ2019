@@ -93,7 +93,7 @@ MonoBehaviour:
   gameManager: {fileID: 11400000, guid: 9df897f16706355489d3c54321099f9f, type: 2}
   speed: 1.6342
   speed1: 1.245134
-  speed2: 0.734635
+  speed2: 1.4234
   speed3: 0.934623
   moveScale: {x: 0.1, y: 0.1, z: 0}
 --- !u!1 &8974900874243488336
@@ -105,6 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8974900874243488337}
+  - component: {fileID: 3260738037815545686}
   m_Layer: 0
   m_Name: Cloud3
   m_TagString: Untagged
@@ -127,3 +128,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3260738037815545686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974900874243488336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385ccc59bcd97d84db7dc9996568b017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSettings: {fileID: 11400000, guid: 5df9d322262607142bd598aaaec68b49, type: 2}
+  moveUp: 1

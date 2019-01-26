@@ -16,6 +16,8 @@ namespace GGJ.Level
 
         bool activated, preActivated = false;
 
+        float springDistance;
+
         public UnityEvent OnActivation;
         public UnityEvent OnDeactivation;
 
@@ -54,6 +56,7 @@ namespace GGJ.Level
             {
                 spring = GetComponent<SpringJoint2D>();
             }
+            springDistance = spring.distance;
         }
 
         private void Start()
@@ -63,6 +66,8 @@ namespace GGJ.Level
 
         private void GameManager_Update()
         {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+            //spring.distance = springDistance;
             CheckActivation();
             CheckEvents();
         }

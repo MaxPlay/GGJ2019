@@ -77,7 +77,7 @@ namespace GGJ.Level
         private void Awake()
         {
             startSize = transform.localScale;
-            startPosition = transform.position;
+            startPosition = transform.localPosition;
         }
 
         #endregion
@@ -122,7 +122,7 @@ namespace GGJ.Level
         {
             curtainState = Mathf.Min(curtainState + Time.deltaTime * closeSpeed, 1);
             curtain.localScale = Utility.VectorLerp(sizeWhenOpen, startSize, curtainState);
-            curtain.position = Utility.VectorLerp(PositionWhenOpen, startPosition, curtainState);
+            curtain.localPosition = Utility.VectorLerp(PositionWhenOpen, startPosition, curtainState);
             if (curtainState >= 1)
             {
                 return CurtainState.Open;
