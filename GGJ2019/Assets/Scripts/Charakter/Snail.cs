@@ -95,11 +95,19 @@ namespace GGJ.Character
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            Vector3 borderVector = new Vector3(-borderDistance, transform.position.y - 2, transform.position.z);
+            Vector3 temp1 = new Vector3(-borderDistance, botBorder, transform.position.z);
+            Vector3 temp2 = new Vector3(-borderDistance, topBorder, transform.position.z);
 
-            Gizmos.DrawLine(borderVector, borderVector + Vector3.up * 4);
-            borderVector.x = borderDistance;
-            Gizmos.DrawLine(borderVector, borderVector + Vector3.up * 4);
+            Gizmos.DrawLine(temp1, temp2);
+            temp1.x = borderDistance;
+            temp2.x = borderDistance;
+            Gizmos.DrawLine(temp1, temp2);
+            temp1.x = -borderDistance;
+            temp1.y = topBorder;
+            Gizmos.DrawLine(temp1, temp2);
+            temp1.y = botBorder;
+            temp2.y = botBorder;
+            Gizmos.DrawLine(temp1, temp2);
         }
 
         private void OnTriggerStay2D(Collider2D collision)
