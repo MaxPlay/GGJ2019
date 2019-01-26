@@ -1,21 +1,21 @@
-﻿using System;
+﻿using GGJ.Character;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace GGJ.Powerups
 {
-    class NoShell : House
+    class DefaultShell : House
     {
-        public HouseType houseType = HouseType.None;
-
-        public override void Action()
+        public override void Action(Snail character)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public override void Interact()
+        public override void Interact(Snail character)
         {
             throw new NotImplementedException();
         }

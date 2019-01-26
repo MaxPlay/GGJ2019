@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGJ.Character;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,18 +10,8 @@ namespace GGJ.Powerups
 {
     abstract class House : MonoBehaviour
     {
-        public abstract void Action();
+        public abstract void Action(Snail character);
 
-        public abstract void Interact();
-    }
-
-    public enum HouseType
-    {
-        None,
-        DShell,
-        Heavy,
-        Balloon,
-        Lantern,
-        Castle
+        public abstract void Interact(Snail character);
     }
 }

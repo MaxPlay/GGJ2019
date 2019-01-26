@@ -1,4 +1,5 @@
-﻿using GGJ.Powerups;
+﻿using GGJ.Level;
+using GGJ.Powerups;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,19 @@ namespace GGJ.Character
         GameManager gameManager;
 
         [SerializeField]
+        Stage stage;
+
+        [SerializeField]
+        Rigidbody2D rigid;
+
+        [SerializeField]
+        Transform housePivot;
+
+        [SerializeField]
         float borderDistance;
+
+        [SerializeField]
+        House starthouse;
 
         [SerializeField]
         float acceleration, maxVelocity;
@@ -42,6 +55,7 @@ namespace GGJ.Character
         private void Start()
         {
             gameManager.Update += Snail_Update;
+            currentHouse = starthouse;
         }
 
         private void OnDestroy()
@@ -52,7 +66,10 @@ namespace GGJ.Character
         void Snail_Update()
         {
             HandleInput();
-            transform.Translate(Vector3.right * velocity * Time.deltaTime);
+            CorrectSpeed();
+            HandleHouse();
+            rigid.velocity = Vector2.up * rigid.velocity.y + Vector2.right * velocity;
+            //transform.Translate(Vector3.right * velocity * Time.deltaTime);
         }
 
         private void OnDrawGizmos()
@@ -65,15 +82,42 @@ namespace GGJ.Character
             Gizmos.DrawLine(borderVector, borderVector + Vector3.up * 4);
         }
 
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                House levelHouse = collision.GetComponent<House>();
+                if(levelHouse)
+                {
+                    CollectHouse(levelHouse);
+                }
+            }
+        }
+
+        private void CollectHouse(House levelHouse)
+        {
+            if(currentHouse)
+            {
+                currentHouse = null;
+            }
+            currentHouse = levelHouse;
+        }
+
         #endregion
 
         #region Public Methods
 
-
-
         #endregion
 
         #region Private Methods
+
+        private void HandleHouse()
+        {
+            if(currentHouse)
+            {
+                currentHouse.transform.position = housePivot.position;
+            }
+        }
 
         void CorrectSpeed()
         {
@@ -104,10 +148,22 @@ namespace GGJ.Character
 
         void HouseInput()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(currentHouse)
             {
-                currentHouse.Action();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    currentHouse.Action(this);
+                }
+                else if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    DropShell();
+                }
             }
+        }
+
+        private void DropShell()
+        {
+            currentHouse = null;
         }
 
         void MovementInput()
