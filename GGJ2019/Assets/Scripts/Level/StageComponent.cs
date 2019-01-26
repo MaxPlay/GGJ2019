@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGJ.Lighting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,14 @@ namespace GGJ.Level
         private Stage stage;
 
         public Stage Stage { get => stage; }
+
+        [SerializeField]
+        private LightManager lights;
+
+        public LightManager Lights
+        {
+            get { return lights; }
+        }
 
         private void OnDrawGizmosSelected()
         {

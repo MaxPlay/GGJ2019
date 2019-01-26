@@ -5,12 +5,10 @@ using UnityEngine;
 
 namespace GGJ.Level
 {
-    public class WorldObject : MonoBehaviour
+    public class WorldObject : TimelineObject
     {
         private WorldObjectState state;
         private float animationTimer;
-
-        public bool IsVisible { get; private set; }
 
         [SerializeField]
         private WorldObjectAnimationSettings animationSettings;
@@ -18,28 +16,36 @@ namespace GGJ.Level
         private float downPosition;
 
         [SerializeField]
+        private bool moveUp;
 
-        public WorldTimeline Timeline { get; set; }
-
-        public void Setup()
+        public override void Setup()
         {
             upPosition = transform.position.y;
-            downPosition = transform.position.y - Timeline.Stage.Stage.Area.height;
+            downPosition = transform.position.y - (Timeline.Stage.Stage.Area.height * (moveUp ? -1 : 1));
         }
 
-        public virtual void UpdateEntity()
+        public override void EnterStage()
         {
-            IsVisible = Timeline.IsVisible(this);
+            OnStage = true;
+        }
+
+        public override void ExistStage()
+        {
+            OnStage = false;
+        }
+
+        public override void UpdateEntity()
+        {
             switch (state)
             {
                 case WorldObjectState.IdleUp:
-                    Idle(!IsVisible, WorldObjectState.Down);
+                    Idle(!OnStage, WorldObjectState.Down);
                     break;
                 case WorldObjectState.Up:
                     Transition(WorldObjectState.IdleUp, animationSettings.UpAnimation);
                     break;
                 case WorldObjectState.IdleDown:
-                    Idle(IsVisible, WorldObjectState.Up);
+                    Idle(OnStage, WorldObjectState.Up);
                     break;
                 case WorldObjectState.Down:
                     Transition(WorldObjectState.IdleDown, animationSettings.DownAnimation);
@@ -64,7 +70,7 @@ namespace GGJ.Level
             }
         }
 
-        private void OnDrawGizmos()
+        public override void DrawGizmos(float yMin, float yMax)
         {
             Gizmos.color = Timeline ? Timeline.IsVisible(this) ? Color.white : Color.gray : Color.gray;
             Gizmos.DrawSphere(transform.position, 0.5f);
