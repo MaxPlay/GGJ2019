@@ -21,6 +21,8 @@ namespace GGJ.Character
 
         Rigidbody2D houseRigid;
 
+        bool canPickUp = true;
+
         public bool freezeActions = false;
 
         #region Serializefields
@@ -102,13 +104,47 @@ namespace GGJ.Character
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(canPickUp)
             {
-                House levelHouse = collision.GetComponent<House>();
-                if(levelHouse)
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    CollectHouse(levelHouse);
+                    House levelHouse = collision.GetComponent<House>();
+                    if (levelHouse)
+                    {
+                        CollectHouse(levelHouse);
+                    }
                 }
+            }
+
+            if(collision.gameObject.tag == "NoShellZone")
+            {
+                if(currentHouse)
+                {
+                    if(transform.position.x - collision.transform.position.x > 0)
+                    {
+                        velocity.x = Mathf.Max(velocity.x, 0);
+                    }
+                    else if (transform.position.x - collision.transform.position.x <= 0)
+                    {
+                        velocity.x = Mathf.Min(velocity.x, 0);
+                    }
+                }
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.gameObject.tag == "NoShellZone")
+            {
+                canPickUp = false;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "NoShellZone")
+            {
+                canPickUp = true;
             }
         }
 
@@ -141,6 +177,7 @@ namespace GGJ.Character
             {
                 rigid.mass = 1;
             }
+            currentHouse.transform.SetParent(null);
             currentHouse = null;
             houseRigid.bodyType = RigidbodyType2D.Dynamic;
             houseRigid = null;
@@ -155,6 +192,7 @@ namespace GGJ.Character
             if(!CurrentHouse)
             {
                 currentHouse = levelHouse;
+                currentHouse.transform.SetParent(transform);
                 houseRigid = CurrentHouse.GetComponent<Rigidbody2D>();
                 houseRigid.bodyType = RigidbodyType2D.Kinematic;
                 housePos = 1;
