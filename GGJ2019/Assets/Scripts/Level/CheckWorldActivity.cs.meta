@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 385ccc59bcd97d84db7dc9996568b017
+guid: ccdbb3457def2214e94468278d4d8e85
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - animationSettings: {fileID: 11400000, guid: 5df9d322262607142bd598aaaec68b49,
-      type: 2}
+  - gameManager: {fileID: 11400000, guid: 9df897f16706355489d3c54321099f9f, type: 2}
+  - obj: {instanceID: 0}
+  - rigid: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

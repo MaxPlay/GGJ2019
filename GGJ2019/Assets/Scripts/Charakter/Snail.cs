@@ -25,6 +25,8 @@ namespace GGJ.Character
 
         public bool freezeActions = false;
 
+        bool canDrop = true;
+
         #region Serializefields
 
         [SerializeField]
@@ -32,6 +34,9 @@ namespace GGJ.Character
 
         [SerializeField]
         Stage stage;
+
+        [SerializeField]
+        Transform worldTimeLine;
 
         [SerializeField]
         Rigidbody2D rigid;
@@ -175,20 +180,27 @@ namespace GGJ.Character
 
         }
 
+        public void LockHouse()
+        {
+            canDrop = false;
+        }
+
         public void DropShell()
         {
-            if (currentHouse.houseType == House.HouseType.Fly)
+            if(canDrop)
             {
-                rigid.gravityScale = 1;
+                if (currentHouse.houseType == House.HouseType.Fly)
+                {
+                    rigid.gravityScale = 1;
+                }
+                else if (currentHouse.houseType == House.HouseType.Heavy)
+                {
+                    rigid.mass = 1;
+                }
+                currentHouse = null;
+                houseRigid.bodyType = RigidbodyType2D.Dynamic;
+                houseRigid = null;
             }
-            else if(currentHouse.houseType == House.HouseType.Heavy)
-            {
-                rigid.mass = 1;
-            }
-            currentHouse.transform.SetParent(null);
-            currentHouse = null;
-            houseRigid.bodyType = RigidbodyType2D.Dynamic;
-            houseRigid = null;
         }
 
         #endregion
@@ -200,7 +212,6 @@ namespace GGJ.Character
             if(!CurrentHouse)
             {
                 currentHouse = levelHouse;
-                currentHouse.transform.SetParent(transform);
                 houseRigid = CurrentHouse.GetComponent<Rigidbody2D>();
                 houseRigid.bodyType = RigidbodyType2D.Kinematic;
                 housePos = 1;
@@ -231,6 +242,7 @@ namespace GGJ.Character
         {
             if(CurrentHouse)
             {
+                houseRigid.velocity = Vector2.zero;
                 housePos = Mathf.Max(0, housePos - 0.1f);
                 CurrentHouse.transform.position = Utility.VectorLerp(CurrentHouse.transform.position, housePivot.transform.position, housePos);
                 CurrentHouse.transform.rotation = housePivot.rotation;
@@ -244,10 +256,18 @@ namespace GGJ.Character
 
             if (transform.position.x > borderDistance)
             {
+                if(velocity.x > 0)
+                {
+                    worldTimeLine.Translate(Vector3.left * maxVelocity * Time.deltaTime);
+                }
                 velocity.x = Mathf.Min(0, velocity.x);
             }
             else if (transform.position.x < -borderDistance)
             {
+                if (velocity.x < 0)
+                {
+                    worldTimeLine.Translate(Vector3.right * maxVelocity * Time.deltaTime);
+                }
                 velocity.x = Mathf.Max(0, velocity.x);
             }
 
