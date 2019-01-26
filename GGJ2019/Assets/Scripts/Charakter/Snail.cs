@@ -13,11 +13,15 @@ namespace GGJ.Character
     {
         #region Variables
 
-        float velocity;
+        Vector2 velocity;
 
         House currentHouse;
 
         float housePos = 1;
+
+        Rigidbody2D houseRigid;
+
+        public bool freezeActions = false;
 
         #region Serializefields
 
@@ -37,7 +41,7 @@ namespace GGJ.Character
         Transform housePivot;
 
         [SerializeField]
-        float borderDistance;
+        float borderDistance, topBorder, botBorder;
 
         [SerializeField]
         House starthouse;
@@ -54,7 +58,7 @@ namespace GGJ.Character
 
         #region Properties
 
-
+        public House CurrentHouse { get => currentHouse; }
 
         #endregion
 
@@ -73,11 +77,16 @@ namespace GGJ.Character
 
         void Snail_Update()
         {
-            HandleInput();
-            CorrectSpeed();
+            if(!freezeActions)
+            {
+                HandleInput();
+                CorrectSpeed();
+            }
+
             HandleModel();
             HandleHouse();
-            rigid.velocity = Vector2.up * rigid.velocity.y + Vector2.right * velocity;
+            UpdateRigid();
+
             //transform.Translate(Vector3.right * velocity * Time.deltaTime);
         }
 
@@ -103,31 +112,62 @@ namespace GGJ.Character
             }
         }
 
-        private void CollectHouse(House levelHouse)
-        {
-            if(currentHouse)
-            {
-                currentHouse = null;
-            }
-            currentHouse = levelHouse;
-            housePos = 1;
-        }
-
         #endregion
 
         #region Public Methods
+
+        void UpdateRigid()
+        {
+            if (currentHouse)
+            {
+                if (currentHouse.houseType == House.HouseType.Fly)
+                {
+                    rigid.velocity = velocity;
+                    return;
+                }
+            }
+
+            rigid.velocity = Vector2.up * rigid.velocity.y + Vector2.right * velocity;
+
+        }
+
+        public void DropShell()
+        {
+            if (currentHouse.houseType == House.HouseType.Fly)
+            {
+                rigid.gravityScale = 1;
+            }
+            currentHouse = null;
+            houseRigid.bodyType = RigidbodyType2D.Dynamic;
+            houseRigid = null;
+        }
 
         #endregion
 
         #region Private Methods
 
+        private void CollectHouse(House levelHouse)
+        {
+            if(!CurrentHouse)
+            {
+                currentHouse = levelHouse;
+                houseRigid = CurrentHouse.GetComponent<Rigidbody2D>();
+                houseRigid.bodyType = RigidbodyType2D.Kinematic;
+                housePos = 1;
+                if(currentHouse.houseType == House.HouseType.Fly)
+                {
+                    rigid.gravityScale = 0;
+                }
+            }
+        }
+
         private void HandleModel()
         {
-            if(velocity > 0)
+            if(velocity.x > 0)
             {
                 model.transform.eulerAngles = Utility.VectorLerp(model.transform.eulerAngles, Vector3.up * 180, 1 - rotationSpeed);
             }
-            else if (velocity < 0)
+            else if (velocity.x < 0)
             {
                 model.transform.eulerAngles = Utility.VectorLerp(model.transform.eulerAngles, Vector3.zero, 1 - rotationSpeed);
             }
@@ -135,26 +175,41 @@ namespace GGJ.Character
 
         private void HandleHouse()
         {
-            if(currentHouse)
+            if(CurrentHouse)
             {
                 housePos = Mathf.Max(0, housePos - 0.1f);
-                currentHouse.transform.position = Utility.VectorLerp(currentHouse.transform.position, housePivot.transform.position, housePos);
-                currentHouse.transform.rotation = housePivot.rotation;
+                CurrentHouse.transform.position = Utility.VectorLerp(CurrentHouse.transform.position, housePivot.transform.position, housePos);
+                CurrentHouse.transform.rotation = housePivot.rotation;
             }
         }
 
         void CorrectSpeed()
         {
-            velocity = Mathf.Min(maxVelocity, velocity);
-            velocity = Mathf.Max(-maxVelocity, velocity);
+            velocity.x = Mathf.Min(maxVelocity, velocity.x);
+            velocity.x = Mathf.Max(-maxVelocity, velocity.x);
 
             if (transform.position.x > borderDistance)
             {
-                velocity = Mathf.Min(0, velocity);
+                velocity.x = Mathf.Min(0, velocity.x);
             }
             else if (transform.position.x < -borderDistance)
             {
-                velocity = Mathf.Max(0, velocity);
+                velocity.x = Mathf.Max(0, velocity.x);
+            }
+
+            if(currentHouse)
+            {
+                if(currentHouse.houseType == House.HouseType.Fly)
+                {
+                    if (transform.position.y > topBorder)
+                    {
+                        velocity.y = Mathf.Min(0, velocity.y);
+                    }
+                    else if (transform.position.y < botBorder)
+                    {
+                        velocity.y = Mathf.Max(0, velocity.y);
+                    }
+                }
             }
         }
 
@@ -166,37 +221,47 @@ namespace GGJ.Character
 
         void HouseInput()
         {
-            if(currentHouse)
+            if(CurrentHouse)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    currentHouse.Action(this);
-                }
-                else if (Input.GetKeyDown(KeyCode.LeftShift))
+                if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
                     DropShell();
                 }
             }
         }
 
-        private void DropShell()
-        {
-            currentHouse = null;
-        }
-
         void MovementInput()
         {
+            if(CurrentHouse)
+            {
+                if(CurrentHouse.houseType == House.HouseType.Fly)
+                {
+                    if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+                    {
+                        velocity.y += acceleration * Time.deltaTime;
+                    }
+                    else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                    {
+                        velocity.y -= acceleration * Time.deltaTime;
+                    }
+                    else
+                    {
+                        velocity.y = velocity.y * drag;
+                    }
+                }
+            }
+
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                velocity -= acceleration * Time.deltaTime;
+                velocity.x -= acceleration * Time.deltaTime;
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                velocity += acceleration * Time.deltaTime;
+                velocity.x += acceleration * Time.deltaTime;
             }
             else
             {
-                velocity = velocity * drag;
+                velocity.x = velocity.x * drag;
             }
         }
 
