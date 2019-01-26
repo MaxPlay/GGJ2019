@@ -17,6 +17,8 @@ namespace GGJ.Character
 
         House currentHouse;
 
+        float housePos = 1;
+
         #region Serializefields
 
         [SerializeField]
@@ -29,6 +31,9 @@ namespace GGJ.Character
         Rigidbody2D rigid;
 
         [SerializeField]
+        Transform model;
+
+        [SerializeField]
         Transform housePivot;
 
         [SerializeField]
@@ -39,6 +44,9 @@ namespace GGJ.Character
 
         [SerializeField]
         float acceleration, maxVelocity;
+
+        [SerializeField, Range(0, 1)]
+        float drag, rotationSpeed;
 
         #endregion
 
@@ -67,6 +75,7 @@ namespace GGJ.Character
         {
             HandleInput();
             CorrectSpeed();
+            HandleModel();
             HandleHouse();
             rigid.velocity = Vector2.up * rigid.velocity.y + Vector2.right * velocity;
             //transform.Translate(Vector3.right * velocity * Time.deltaTime);
@@ -101,6 +110,7 @@ namespace GGJ.Character
                 currentHouse = null;
             }
             currentHouse = levelHouse;
+            housePos = 1;
         }
 
         #endregion
@@ -111,16 +121,33 @@ namespace GGJ.Character
 
         #region Private Methods
 
+        private void HandleModel()
+        {
+            if(velocity > 0)
+            {
+                model.transform.eulerAngles = Utility.VectorLerp(model.transform.eulerAngles, Vector3.up * 180, 1 - rotationSpeed);
+            }
+            else if (velocity < 0)
+            {
+                model.transform.eulerAngles = Utility.VectorLerp(model.transform.eulerAngles, Vector3.zero, 1 - rotationSpeed);
+            }
+        }
+
         private void HandleHouse()
         {
             if(currentHouse)
             {
-                currentHouse.transform.position = housePivot.position;
+                housePos = Mathf.Max(0, housePos - 0.1f);
+                currentHouse.transform.position = Utility.VectorLerp(currentHouse.transform.position, housePivot.transform.position, housePos);
+                currentHouse.transform.rotation = housePivot.rotation;
             }
         }
 
         void CorrectSpeed()
         {
+            velocity = Mathf.Min(maxVelocity, velocity);
+            velocity = Mathf.Max(-maxVelocity, velocity);
+
             if (transform.position.x > borderDistance)
             {
                 velocity = Mathf.Min(0, velocity);
@@ -135,15 +162,6 @@ namespace GGJ.Character
         {
             MovementInput();
             HouseInput();
-            InteractionInput();
-        }
-
-        private void InteractionInput()
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-            {
-
-            }
         }
 
         void HouseInput()
@@ -175,6 +193,10 @@ namespace GGJ.Character
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 velocity += acceleration * Time.deltaTime;
+            }
+            else
+            {
+                velocity = velocity * drag;
             }
         }
 
