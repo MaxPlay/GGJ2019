@@ -24,16 +24,6 @@ namespace GGJ.Level
             downPosition = transform.position.y - (Timeline.Stage.Stage.Area.height * (moveUp ? -1 : 1));
         }
 
-        public override void EnterStage()
-        {
-            OnStage = true;
-        }
-
-        public override void ExistStage()
-        {
-            OnStage = false;
-        }
-
         public override void UpdateEntity()
         {
             switch (state)

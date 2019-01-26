@@ -15,9 +15,9 @@ namespace GGJ.Level
         [SerializeField]
         private float Max = 0;
 
-        public bool IsVisible(WorldObject worldObject)
+        public bool IsVisible(TimelineObject obj)
         {
-            return Mathf.Abs(worldObject.transform.position.x - Position) < stage.Stage.Area.width * 0.5f;
+            return Mathf.Abs(obj.transform.position.x - Position) < stage.Stage.Area.width * 0.5f;
         }
 
         private float Position => stage?.transform.position.x ?? 0;
@@ -46,7 +46,7 @@ namespace GGJ.Level
 
         private void Manager_Update()
         {
-            entities.ForEach((e) => { e.UpdateEntity(); });
+            entities.ForEach((e) => { e.DoUpdate(); });
         }
         
         private void OnDrawGizmos()
