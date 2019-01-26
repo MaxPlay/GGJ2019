@@ -11,12 +11,22 @@ namespace GGJ.Level
 
         public abstract void Setup();
 
+        public void DoUpdate()
+        {
+            if (Timeline.IsVisible(this) != OnStage)
+                if (OnStage)
+                    ExitStage();
+                else
+                    EnterStage();
+            UpdateEntity();
+        }
+
         public virtual void EnterStage()
         {
             OnStage = true;
         }
 
-        public virtual void ExistStage()
+        public virtual void ExitStage()
         {
             OnStage = false;
         }
