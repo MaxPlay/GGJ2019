@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.Events;
 using UnityEngine;
 using static GGJ.GameManager;
 
 namespace GGJ.Level
 {
-    class Button : MonoBehaviour
+    class ButtonMechanic : MonoBehaviour
     {
         #region Variables
 
         bool activated, preActivated = false;
 
-        public event UpdateEventHandler OnActivation;
-        public event UpdateEventHandler OnDeactivation;
+        public UnityEvent OnActivation;
+        public UnityEvent OnDeactivation;
 
         #region Serializefields
 
@@ -46,7 +47,10 @@ namespace GGJ.Level
 
         private void Awake()
         {
-            if(!spring)
+            OnActivation = new UnityEvent();
+            OnDeactivation = new UnityEvent();
+
+            if (!spring)
             {
                 spring = GetComponent<SpringJoint2D>();
             }
@@ -75,7 +79,7 @@ namespace GGJ.Level
 
         void CheckActivation()
         {
-            if ((spring.connectedBody.transform.position - transform.position).sqrMagnitude < (Mathf.Pow(activationDistance, 2)))
+            if ((spring.connectedBody.transform.position - spring.transform.position).sqrMagnitude < (Mathf.Pow(activationDistance, 2)))
             {
                 activated = true;
             }
