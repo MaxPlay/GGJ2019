@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GGJ.Internal
 {
@@ -12,10 +13,18 @@ namespace GGJ.Internal
         [SerializeField]
         private GameManager manager;
 
+        [SerializeField]
+        UnityEvent startup;
+
         public GameManager Manager { get => manager; set => manager = value; }
 
         private void Update() => manager?.OnUpdate();
 
         private void FixedUpdate() => manager?.OnFixedUpdate();
+
+        public void Start()
+        {
+            startup.Invoke();
+        }
     }
 }

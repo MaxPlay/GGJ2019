@@ -277,13 +277,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188705380635073275}
-  m_LocalRotation: {x: -0.51759773, y: -0.48175982, z: 0.48175997, w: 0.5175978}
+  m_LocalRotation: {x: -0.030041989, y: -0.68073756, z: 0.027961008, w: 0.73137695}
   m_LocalPosition: {x: -12.767585, y: 3.4507875, z: -13.346694}
   m_LocalScale: {x: 100.00008, y: 100.00004, z: 100}
   m_Children: []
   m_Father: {fileID: 5698135566856800546}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -4.1080003, y: -90.00001, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: -0.337, y: -85.906006, z: 4.6920004}
 --- !u!33 &1188705380636198651
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7b7d043cf6b781d4eb0be9ef8f3da9d5, type: 2}
-  - {fileID: 2100000, guid: 6d8ad87438990754a91f606c9d68878f, type: 2}
+  - {fileID: 2100000, guid: 45b5c3f7f5604d04fbf059e785919d9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -927,6 +927,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2965796561370275354}
     m_Modifications:
+    - target: {fileID: 100004, guid: 8d2d7354689e0f94f8c05389d55155af, type: 3}
+      propertyPath: m_Name
+      value: Schnecke_Model
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 8d2d7354689e0f94f8c05389d55155af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0013255
@@ -983,10 +987,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 36.004963
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 8d2d7354689e0f94f8c05389d55155af, type: 3}
-      propertyPath: m_Name
-      value: Schnecke_Model
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 8d2d7354689e0f94f8c05389d55155af, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1012,6 +1012,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6091235345613019223}
     m_Modifications:
+    - target: {fileID: 100000, guid: a11098b4d51cdb54ebfa11a089815ed3, type: 3}
+      propertyPath: m_Name
+      value: Haus1_Model
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a11098b4d51cdb54ebfa11a089815ed3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00004492253
@@ -1067,10 +1071,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: a11098b4d51cdb54ebfa11a089815ed3, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.14690766
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a11098b4d51cdb54ebfa11a089815ed3, type: 3}
-      propertyPath: m_Name
-      value: Haus1_Model
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a11098b4d51cdb54ebfa11a089815ed3, type: 3}
       propertyPath: m_Materials.Array.data[0]

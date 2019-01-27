@@ -2,6 +2,7 @@
 
 namespace GGJ.Lighting
 {
+    [ExecuteInEditMode]
     public class FollowingStagelight : StageLight
     {
         #region Private Fields

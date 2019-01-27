@@ -15,16 +15,14 @@ namespace GGJ.Lighting
         private LightState offCache;
         private bool isOn;
 
-        private AnimationProperties intensityProperties;
-        private AnimationProperties colorProperties;
+        private AnimationProperties intensityProperties = new AnimationProperties() { Speed = 1, Timer = 1 };
+        private AnimationProperties colorProperties = new AnimationProperties() { Speed = 1, Timer = 1 };
 
         public void Start()
         {
-            target.Color = lightSource.color;
-            target.Intensity = lightSource.intensity;
+            current.Color = lightSource.color;
+            current.Intensity = lightSource.intensity;
             isOn = lightSource.intensity <= 0.001f;
-            intensityProperties.Timer = 1;
-            colorProperties.Timer = 1;
         }
 
         public void FadeTo(Color color, float speed = 1)
@@ -48,7 +46,7 @@ namespace GGJ.Lighting
             FadeTo(color, speed);
             FadeTo(intensity, speed);
         }
-        
+
         protected virtual void Update()
         {
             Animate(ref intensityProperties,
