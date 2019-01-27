@@ -254,6 +254,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 780703931150677404, guid: a6a5ffeb099e3b94ab32476da166f72b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b41a99786e03e684bb868d3eeec70936, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6a5ffeb099e3b94ab32476da166f72b, type: 3}
 --- !u!114 &38234422 stripped
@@ -2139,12 +2144,47 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1303951598}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &518333175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6059113621376940856, guid: ef7d5a4bc5e0bc041ba28feb13d51479,
+    type: 3}
+  m_PrefabInstance: {fileID: 896930991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &518333176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518333175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f14bdc5251daf4893d94a3b801673f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setBack: 2
 --- !u!4 &518333177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6059113621376940858, guid: ef7d5a4bc5e0bc041ba28feb13d51479,
     type: 3}
   m_PrefabInstance: {fileID: 896930991}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &518333178
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518333175}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1001 &553362053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3271,6 +3311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hill2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059113621376940856, guid: ef7d5a4bc5e0bc041ba28feb13d51479,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hazard
       objectReference: {fileID: 0}
     - target: {fileID: 6059113621376940858, guid: ef7d5a4bc5e0bc041ba28feb13d51479,
         type: 3}

@@ -15,6 +15,8 @@ namespace GGJ.Character
 
         Vector2 velocity;
 
+        float timeLineSpeed = 0;
+
         House currentHouse;
 
         float housePos = 1;
@@ -97,6 +99,9 @@ namespace GGJ.Character
             HandleHouse();
             UpdateRigid();
 
+            worldTimeLine.transform.position += Vector3.right * Time.deltaTime * timeLineSpeed;
+            timeLineSpeed = Mathf.Max(0, timeLineSpeed - Time.deltaTime);
+
             //transform.Translate(Vector3.right * velocity * Time.deltaTime);
         }
 
@@ -153,6 +158,11 @@ namespace GGJ.Character
             if(collision.gameObject.tag == "NoShellZone")
             {
                 canPickUp = false;
+            }
+            else if(collision.gameObject.tag == "Hazard")
+            {
+                Hazard hazard = collision.GetComponent<Hazard>();
+                timeLineSpeed = hazard.setBack;
             }
         }
 
