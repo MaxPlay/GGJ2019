@@ -217,17 +217,20 @@ namespace GGJ.Character
         {
             if(canDrop)
             {
-                if (currentHouse.houseType == House.HouseType.Fly)
+                if(currentHouse)
                 {
-                    rigid.gravityScale = 1;
+                    if (currentHouse.houseType == House.HouseType.Fly)
+                    {
+                        rigid.gravityScale = 1;
+                    }
+                    else if (currentHouse.houseType == House.HouseType.Heavy)
+                    {
+                        rigid.mass = 1;
+                    }
+                    currentHouse = null;
+                    houseRigid.bodyType = RigidbodyType2D.Dynamic;
+                    houseRigid = null;
                 }
-                else if (currentHouse.houseType == House.HouseType.Heavy)
-                {
-                    rigid.mass = 1;
-                }
-                currentHouse = null;
-                houseRigid.bodyType = RigidbodyType2D.Dynamic;
-                houseRigid = null;
             }
         }
 
