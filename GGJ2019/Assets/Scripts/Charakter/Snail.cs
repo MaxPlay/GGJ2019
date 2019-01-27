@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GGJ.Character
 {
@@ -62,6 +63,9 @@ namespace GGJ.Character
 
         [SerializeField, Range(0, 1)]
         float drag, rotationSpeed;
+
+        [SerializeField]
+        UnityEvent finalShellPickup;
 
         #endregion
 
@@ -253,6 +257,11 @@ namespace GGJ.Character
                 else if(currentHouse.houseType == House.HouseType.Heavy)
                 {
                     rigid.mass = houseRigid.mass;
+                }
+
+                if(currentHouse.houseType == House.HouseType.Default)
+                {
+                    finalShellPickup.Invoke();
                 }
             }
         }
