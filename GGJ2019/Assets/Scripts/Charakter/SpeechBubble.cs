@@ -20,6 +20,7 @@ namespace GGJ.Charakter
         struct TextInput
         {
             public string Key;
+            [TextArea]
             public string Value;
         }
         
