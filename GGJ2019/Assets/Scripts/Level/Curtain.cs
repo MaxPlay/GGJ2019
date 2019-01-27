@@ -11,6 +11,7 @@ namespace GGJ.Level
     {
         #region Variables
 
+        [SerializeField]
         bool open = true;
 
         CurtainState state = CurtainState.Closed;
