@@ -26,7 +26,8 @@ namespace GGJ.Character
 
         bool canPickUp = true;
 
-        public bool freezeActions = false;
+        [SerializeField]
+        private bool freezeActions = false;
 
         bool canDrop = true;
 
@@ -196,6 +197,16 @@ namespace GGJ.Character
         #endregion
 
         #region Public Methods
+
+        public void Freeze()
+        {
+            freezeActions = true;
+        }
+
+        public void Unfreeze()
+        {
+            freezeActions = false;
+        }
 
         void UpdateRigid()
         {

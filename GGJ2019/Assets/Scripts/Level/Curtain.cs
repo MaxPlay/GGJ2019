@@ -135,7 +135,7 @@ namespace GGJ.Level
         {
             curtainState = Mathf.Min(curtainState + Time.deltaTime * closeSpeed, 1);
             curtain.localScale = Utility.VectorLerp(startSize, sizeWhenOpen, curtainState);
-            curtain.position = Utility.VectorLerp(startPosition, PositionWhenOpen, curtainState);
+            curtain.localPosition = Utility.VectorLerp(startPosition, PositionWhenOpen, curtainState);
             if (curtainState >= 1)
             {
                 return CurtainState.Closed;

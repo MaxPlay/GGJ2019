@@ -1,4 +1,5 @@
-﻿using GGJ.Level;
+﻿using GGJ.Character;
+using GGJ.Level;
 using GGJ.Lighting;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,9 @@ namespace GGJ
         [SerializeField]
         private LightManager lightManager;
 
+        [SerializeField]
+        private Snail character;
+
         public void OpenCurtain() => curtains.ForEach(c => c.Open());
 
         public void CloseCurtain() => curtains.ForEach(c => c.Close());
@@ -46,6 +50,15 @@ namespace GGJ
             {
                 targets[i].SetTarget(followTargets[i]);
             }
+        }
+
+        public void FreezePlayer() => character.Freeze();
+
+        public void UnfreezePlayer() => character.Unfreeze();
+
+        public void Close()
+        {
+            Application.Quit();
         }
     }
 }

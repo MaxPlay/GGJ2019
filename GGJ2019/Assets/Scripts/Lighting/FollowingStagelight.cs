@@ -24,6 +24,7 @@ namespace GGJ.Lighting
         {
             if (lookAt)
                 transform.LookAt(lookAt);
+            base.Update();
         }
 
         #endregion Private Methods
