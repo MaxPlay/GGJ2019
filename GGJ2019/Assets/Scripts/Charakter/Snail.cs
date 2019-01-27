@@ -29,6 +29,8 @@ namespace GGJ.Character
 
         bool canDrop = true;
 
+        float noShell = 0;
+
         #region Serializefields
 
         [SerializeField]
@@ -76,15 +78,26 @@ namespace GGJ.Character
         private void Start()
         {
             gameManager.Update += Snail_Update;
+            gameManager.FixedUpdate += GameManager_FixedUpdate;
+
             if(starthouse)
             {
                 CollectHouse(starthouse);
             }
         }
 
+        private void GameManager_FixedUpdate()
+        {
+            CorrectSpeed();
+            HandleModel();
+            HandleHouse();
+            UpdateRigid();
+        }
+
         private void OnDestroy()
         {
             gameManager.Update -= Snail_Update;
+            gameManager.FixedUpdate -= GameManager_FixedUpdate;
         }
 
         void Snail_Update()
@@ -92,12 +105,7 @@ namespace GGJ.Character
             if(!freezeActions)
             {
                 HandleInput();
-                CorrectSpeed();
             }
-
-            HandleModel();
-            HandleHouse();
-            UpdateRigid();
 
             worldTimeLine.transform.position += Vector3.right * Time.deltaTime * timeLineSpeed;
             timeLineSpeed = Mathf.Max(0, timeLineSpeed - Time.deltaTime);
@@ -141,14 +149,7 @@ namespace GGJ.Character
             {
                 if(currentHouse)
                 {
-                    if(transform.position.x - collision.transform.position.x > 0)
-                    {
-                        velocity.x = Mathf.Max(velocity.x, 0);
-                    }
-                    else if (transform.position.x - collision.transform.position.x <= 0)
-                    {
-                        velocity.x = Mathf.Min(velocity.x, 0);
-                    }
+                    noShell = collision.transform.position.x;
                 }
             }
         }
@@ -164,6 +165,13 @@ namespace GGJ.Character
                 Hazard hazard = collision.GetComponent<Hazard>();
                 timeLineSpeed = hazard.setBack;
             }
+            if (collision.gameObject.tag == "NoShellZone")
+            {
+                if (currentHouse)
+                {
+                    noShell = collision.transform.position.x;
+                }
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
@@ -171,6 +179,13 @@ namespace GGJ.Character
             if (collision.gameObject.tag == "NoShellZone")
             {
                 canPickUp = true;
+            }
+            if (collision.gameObject.tag == "NoShellZone")
+            {
+                if (currentHouse)
+                {
+                    noShell = 0;
+                }
             }
         }
 
@@ -266,6 +281,19 @@ namespace GGJ.Character
         {
             velocity.x = Mathf.Min(maxVelocity, velocity.x);
             velocity.x = Mathf.Max(-maxVelocity, velocity.x);
+
+            if (noShell != 0)
+            {
+                if (transform.position.x - noShell < 0)
+                {
+                    velocity.x = Mathf.Min(velocity.x, 0);
+                }
+
+                else if (transform.position.x - noShell > 0)
+                {
+                    velocity.x = Mathf.Max(velocity.x, 0);
+                }
+            }
 
             if (transform.position.x > borderDistance)
             {
