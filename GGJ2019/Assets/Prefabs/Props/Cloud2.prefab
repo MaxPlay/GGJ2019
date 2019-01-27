@@ -95,7 +95,7 @@ MonoBehaviour:
   speed1: 1.2134
   speed2: 1.6425334
   speed3: 1.1241231
-  moveScale: {x: 0.1, y: 0.1, z: 0}
+  moveScale: {x: 0.1, y: 0, z: 0.1}
 --- !u!1 &6161987076461226269
 GameObject:
   m_ObjectHideFlags: 0

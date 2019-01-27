@@ -34,7 +34,7 @@ namespace GGJ.Level
 
         private void Start()
         {
-            entities = new List<TimelineObject>(GetComponentsInChildren<TimelineObject>());
+            entities = new List<TimelineObject>(GetComponentsInChildren<TimelineObject>(true));
             entities.ForEach((e) => { e.Timeline = this; e.Setup(); });
             manager.Update += Manager_Update;
         }

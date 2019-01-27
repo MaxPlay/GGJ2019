@@ -180,9 +180,9 @@ namespace GGJ.Character
 
         }
 
-        public void LockHouse()
+        public void LockHouse(bool lockState)
         {
-            canDrop = false;
+            canDrop = lockState;
         }
 
         public void DropShell()
