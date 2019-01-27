@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: AnimationsSettings
-  m_EditorClassIdentifier: Assembly-CSharp:GGJ.Level:WorldObjectAnimationSettings
+  m_Script: {fileID: 11500000, guid: db0520fd8979e6f4a96c3d6182b08895, type: 3}
+  m_Name: New World Object Animation Settings
+  m_EditorClassIdentifier: 
   Speed: 4
   UpAnimation:
     serializedVersion: 2

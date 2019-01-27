@@ -1,5 +1,4 @@
-﻿using GGJ.Internal;
-using GGJ.Level;
+﻿using GGJ.Level;
 using System;
 using UnityEngine;
 
@@ -67,14 +66,6 @@ namespace GGJ.Level
             Gizmos.color = Timeline ? Timeline.IsVisible(this) ? Color.white : Color.gray : Color.gray;
             Gizmos.DrawSphere(transform.position, 0.1f);
         }
-    }
-
-    [CreateAssetMenu(menuName = Constants.SCENE_OBJECTS_STRING + "World Object Animation Settings")]
-    public class WorldObjectAnimationSettings : ScriptableObject
-    {
-        public float Speed;
-        public AnimationCurve UpAnimation;
-        public AnimationCurve DownAnimation;
     }
 
     public enum WorldObjectState

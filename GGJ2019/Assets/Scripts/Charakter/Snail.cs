@@ -152,10 +152,7 @@ namespace GGJ.Character
 
             if(collision.gameObject.tag == "NoShellZone")
             {
-                if(currentHouse)
-                {
                     noShell = collision.transform.position.x;
-                }
             }
         }
 
@@ -172,10 +169,7 @@ namespace GGJ.Character
             }
             if (collision.gameObject.tag == "NoShellZone")
             {
-                if (currentHouse)
-                {
                     noShell = collision.transform.position.x;
-                }
             }
         }
 
@@ -187,10 +181,7 @@ namespace GGJ.Character
             }
             if (collision.gameObject.tag == "NoShellZone")
             {
-                if (currentHouse)
-                {
                     noShell = 0;
-                }
             }
         }
 
@@ -255,7 +246,7 @@ namespace GGJ.Character
 
         private void CollectHouse(House levelHouse)
         {
-            if(!CurrentHouse)
+            if(!CurrentHouse && noShell == 0)
             {
                 currentHouse = levelHouse;
                 houseRigid = CurrentHouse.GetComponent<Rigidbody2D>();
@@ -307,14 +298,17 @@ namespace GGJ.Character
 
             if (noShell != 0)
             {
-                if (transform.position.x - noShell < 0)
+                if(currentHouse)
                 {
-                    velocity.x = Mathf.Min(velocity.x, 0);
-                }
+                    if (transform.position.x - noShell < 0)
+                    {
+                        velocity.x = Mathf.Min(velocity.x, 0);
+                    }
 
-                else if (transform.position.x - noShell > 0)
-                {
-                    velocity.x = Mathf.Max(velocity.x, 0);
+                    else if (transform.position.x - noShell > 0)
+                    {
+                        velocity.x = Mathf.Max(velocity.x, 0);
+                    }
                 }
             }
 

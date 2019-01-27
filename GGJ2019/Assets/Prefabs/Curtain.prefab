@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d3062348c458846b88c3217d872f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  open: 1
   gameManager: {fileID: 11400000, guid: 9df897f16706355489d3c54321099f9f, type: 2}
   curtain: {fileID: 576192248913698463}
   sizeWhenOpen: {x: 0.04, y: 0.3942081, z: 0.3746514}
@@ -839,6 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d3062348c458846b88c3217d872f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  open: 1
   gameManager: {fileID: 11400000, guid: 9df897f16706355489d3c54321099f9f, type: 2}
   curtain: {fileID: 576192249596400365}
   sizeWhenOpen: {x: 0.04, y: 0.3942081, z: 0.3746514}
