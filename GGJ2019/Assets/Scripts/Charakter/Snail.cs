@@ -74,7 +74,10 @@ namespace GGJ.Character
         private void Start()
         {
             gameManager.Update += Snail_Update;
-            currentHouse = starthouse;
+            if(starthouse)
+            {
+                CollectHouse(starthouse);
+            }
         }
 
         private void OnDestroy()

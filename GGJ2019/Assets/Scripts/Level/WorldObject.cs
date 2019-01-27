@@ -50,7 +50,7 @@ namespace GGJ.Level
             if (animationTimer >= 1)
                 state = target;
             animationTimer += Time.deltaTime * animationSettings.Speed;
-            transform.position = new Vector2(transform.position.x, Mathf.Lerp(downPosition, upPosition, animation.Evaluate(animationTimer)));
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(downPosition, upPosition, animation.Evaluate(animationTimer)), transform.position.z);
         }
 
         private void Idle(bool trigger, WorldObjectState targetState)
