@@ -15,6 +15,8 @@ namespace GGJ
         [SerializeField]
         private List<Curtain> curtains;
 
+        [SerializeField]
+        SpriteFade fade;
 
         [Header("Light Setup")]
         [SerializeField]
@@ -31,6 +33,9 @@ namespace GGJ
 
         [SerializeField]
         private Snail character;
+
+        [SerializeField]
+        private StageLight[] bubbleLights;
 
         public void OpenCurtain() => curtains.ForEach(c => c.Open());
 
@@ -56,9 +61,27 @@ namespace GGJ
 
         public void UnfreezePlayer() => character.Unfreeze();
 
+        public void BubbleLightOn()
+        {
+            for (int i = 0; i < bubbleLights.Length; i++)
+            {
+                bubbleLights[i].FadeTo(3);
+            }
+        }
+
+        public void BubbleLightOff()
+        {
+            for (int i = 0; i < bubbleLights.Length; i++)
+            {
+                bubbleLights[i].FadeTo(0);
+            }
+        }
+
         public void Close()
         {
             Application.Quit();
         }
+
+        public void FadeOut() => fade.FadeOut();
     }
 }

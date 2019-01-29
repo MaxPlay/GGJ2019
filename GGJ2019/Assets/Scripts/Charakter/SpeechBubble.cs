@@ -16,6 +16,9 @@ namespace GGJ.Charakter
         [SerializeField]
         private Stage stage;
 
+        [SerializeField]
+        private SceneRoot root;
+
         [Serializable]
         struct TextInput
         {
@@ -23,7 +26,7 @@ namespace GGJ.Charakter
             [TextArea]
             public string Value;
         }
-        
+
         [SerializeField]
         private SpeechBubbleState state;
 
@@ -40,12 +43,13 @@ namespace GGJ.Charakter
         public void Show()
         {
             state = SpeechBubbleState.Up;
+            root.BubbleLightOn();
         }
 
         private void Start()
         {
             upPos = transform.localPosition;
-            transform.position -= (Vector3.up * stage.Area.height);
+            transform.position -= (Vector3.up * stage.Area.height * 2);
             downPos = transform.localPosition;
             state = SpeechBubbleState.Down;
             timer = 0;
@@ -65,7 +69,7 @@ namespace GGJ.Charakter
                     break;
                 case SpeechBubbleState.Down:
                     timer -= Time.deltaTime * speed;
-                    if(timer <= 0)
+                    if (timer <= 0)
                     {
                         timer = 0;
                         state = SpeechBubbleState.IdleDown;
@@ -78,6 +82,7 @@ namespace GGJ.Charakter
         public void Hide()
         {
             state = SpeechBubbleState.Down;
+            root.BubbleLightOff();
         }
 
         public void SetText(string key)
