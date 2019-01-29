@@ -314,10 +314,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (8)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -374,6 +379,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -89.825005
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 247872118949340014, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
       propertyPath: m_SpotAngle
@@ -411,11 +421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5115168246246691048}
     m_Modifications:
-    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
-        type: 3}
-      propertyPath: m_Name
-      value: Spot Light (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -434,22 +439,22 @@ PrefabInstance:
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.714772
+      value: -0.14276084
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.21448684
+      value: -0.7020763
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6655915
+      value: 0.14696565
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.009186686
+      value: -0.68198925
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
@@ -470,6 +475,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -160.64801
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8209794419907528017, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
@@ -503,10 +523,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (7)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -563,6 +588,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 247872118949340014, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
       propertyPath: m_SpotAngle
@@ -600,11 +630,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5115168246246691048}
     m_Modifications:
-    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
-        type: 3}
-      propertyPath: m_Name
-      value: Spot Light (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -623,22 +648,22 @@ PrefabInstance:
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5990181
+      value: -7.4205524e-11
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.789797
+      value: -0.99999976
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.035324667
+      value: 0.00075150357
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.12708366
+      value: -0.00000009874273
       objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
@@ -659,6 +684,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -73.374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8209794419907528017, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
@@ -702,10 +742,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (1)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -762,6 +807,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24a508d0ba659c2418fa830e60c31d0b, type: 3}
 --- !u!114 &6065677983139128502 stripped
@@ -789,11 +839,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5115168246246691048}
     m_Modifications:
-    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
-        type: 3}
-      propertyPath: m_Name
-      value: Spot Light (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,6 +894,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -92.788
       objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e114c656698ea8a4991106fc3aa22521, type: 3}
 --- !u!4 &6087947841684219152 stripped
@@ -876,11 +936,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4451111841922440739}
     m_Modifications:
-    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
-        type: 3}
-      propertyPath: m_Name
-      value: Light (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 8277899624273975993, guid: dd53546b51b8b7643ab04cbfae54241c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -936,6 +991,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 17.972
       objectReference: {fileID: 0}
+    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
+        type: 3}
+      propertyPath: m_Name
+      value: Light (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53546b51b8b7643ab04cbfae54241c, type: 3}
 --- !u!114 &7803093259113781282 stripped
@@ -963,11 +1023,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4451111841922440739}
     m_Modifications:
-    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
-        type: 3}
-      propertyPath: m_Name
-      value: Light (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8277899624273975993, guid: dd53546b51b8b7643ab04cbfae54241c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1023,6 +1078,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 17.972
       objectReference: {fileID: 0}
+    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
+        type: 3}
+      propertyPath: m_Name
+      value: Light (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53546b51b8b7643ab04cbfae54241c, type: 3}
 --- !u!4 &4844337890110303931 stripped
@@ -1050,10 +1110,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (3)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -1110,6 +1175,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24a508d0ba659c2418fa830e60c31d0b, type: 3}
 --- !u!114 &8685073960328215886 stripped
@@ -1137,10 +1207,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -1197,6 +1272,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24a508d0ba659c2418fa830e60c31d0b, type: 3}
 --- !u!4 &4919273195594168401 stripped
@@ -1224,11 +1304,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5115168246246691048}
     m_Modifications:
-    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
-        type: 3}
-      propertyPath: m_Name
-      value: Spot Light (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1284,6 +1359,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -92.788
       objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e114c656698ea8a4991106fc3aa22521, type: 3}
 --- !u!114 &5911897578179512966 stripped
@@ -1311,10 +1401,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (2)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -1371,6 +1466,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24a508d0ba659c2418fa830e60c31d0b, type: 3}
 --- !u!4 &5646490567562247381 stripped
@@ -1398,10 +1498,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (5)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -1458,6 +1563,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (5)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24a508d0ba659c2418fa830e60c31d0b, type: 3}
 --- !u!4 &6107996794386937384 stripped
@@ -1485,11 +1595,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5115168246246691048}
     m_Modifications:
-    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
-        type: 3}
-      propertyPath: m_Name
-      value: Spot Light
-      objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1545,6 +1650,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -92.788
       objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e114c656698ea8a4991106fc3aa22521, type: 3}
 --- !u!114 &5488503500163361451 stripped
@@ -1572,10 +1692,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (6)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -1632,6 +1757,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 247872118949340014, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
       propertyPath: m_SpotAngle
@@ -1669,11 +1799,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5115168246246691048}
     m_Modifications:
-    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
-        type: 3}
-      propertyPath: m_Name
-      value: Spot Light (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1729,6 +1854,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 16.046001
       objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 8209794419907528017, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_Range
@@ -1761,11 +1901,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5115168246246691048}
     m_Modifications:
-    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
-        type: 3}
-      propertyPath: m_Name
-      value: Spot Light (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 5269388421286534404, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1821,6 +1956,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -73.374
       objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973527802655921315, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127006069933626722, guid: e114c656698ea8a4991106fc3aa22521,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 8209794419907528017, guid: e114c656698ea8a4991106fc3aa22521,
         type: 3}
       propertyPath: m_Range
@@ -1863,10 +2013,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (9)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -1923,6 +2078,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 10.9339905
       objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 247872118949340014, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
       propertyPath: m_SpotAngle
@@ -1960,11 +2120,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4451111841922440739}
     m_Modifications:
-    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
-        type: 3}
-      propertyPath: m_Name
-      value: Light
-      objectReference: {fileID: 0}
     - target: {fileID: 8277899624273975993, guid: dd53546b51b8b7643ab04cbfae54241c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2020,6 +2175,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 17.972
       objectReference: {fileID: 0}
+    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
+        type: 3}
+      propertyPath: m_Name
+      value: Light
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53546b51b8b7643ab04cbfae54241c, type: 3}
 --- !u!4 &1011112104768579038 stripped
@@ -2047,11 +2207,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4451111841922440739}
     m_Modifications:
-    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
-        type: 3}
-      propertyPath: m_Name
-      value: Light (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 8277899624273975993, guid: dd53546b51b8b7643ab04cbfae54241c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2107,6 +2262,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 17.972
       objectReference: {fileID: 0}
+    - target: {fileID: 3855635671406240051, guid: dd53546b51b8b7643ab04cbfae54241c,
+        type: 3}
+      propertyPath: m_Name
+      value: Light (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53546b51b8b7643ab04cbfae54241c, type: 3}
 --- !u!114 &4034223487367242794 stripped
@@ -2134,10 +2294,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 333108332330656920}
     m_Modifications:
-    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
-      propertyPath: m_Name
-      value: Spot Light (4)
+      propertyPath: intensityProperties.Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736382202349410109, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: intensityProperties.Timer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 403221917048033923, guid: 24a508d0ba659c2418fa830e60c31d0b,
         type: 3}
@@ -2193,6 +2358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852431803611871185, guid: 24a508d0ba659c2418fa830e60c31d0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24a508d0ba659c2418fa830e60c31d0b, type: 3}

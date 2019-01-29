@@ -15,8 +15,15 @@ namespace GGJ.Lighting
         private LightState offCache;
         private bool isOn;
 
-        private AnimationProperties intensityProperties = new AnimationProperties() { Speed = 1, Timer = 1 };
-        private AnimationProperties colorProperties = new AnimationProperties() { Speed = 1, Timer = 1 };
+        [SerializeField]
+        private AnimationProperties intensityProperties;
+        private AnimationProperties colorProperties;
+
+        private void Awake()
+        {
+            intensityProperties = new AnimationProperties() { Speed = 1, Timer = 1 };
+            colorProperties = new AnimationProperties() { Speed = 1, Timer = 1 };
+        }
 
         public void Start()
         {
@@ -49,15 +56,15 @@ namespace GGJ.Lighting
 
         protected virtual void Update()
         {
-            Animate(ref intensityProperties,
+            Animate(intensityProperties,
                 () => { lightSource.intensity = target.Intensity; },
                 (f) => { lightSource.intensity = Mathf.Lerp(current.Intensity, target.Intensity, f); });
-            Animate(ref colorProperties,
+            Animate(colorProperties,
                 () => { lightSource.color = target.Color; },
                 (f) => { lightSource.color = Color.Lerp(current.Color, target.Color, f); });
         }
 
-        private void Animate(ref AnimationProperties properties, Action targetAssignment, Action<float> interpolation)
+        private void Animate(AnimationProperties properties, Action targetAssignment, Action<float> interpolation)
         {
             if (properties.Timer >= 1)
                 return;
@@ -76,7 +83,7 @@ namespace GGJ.Lighting
         }
 
         [Serializable]
-        struct AnimationProperties
+        class AnimationProperties
         {
             public float Speed;
             public float Timer;
